@@ -170,6 +170,9 @@ a {
   gap: 1rem;
   border: 1px solid var(--panel-light);
   backdrop-filter: blur(14px);
+  height: 70vh;
+  max-height: 70vh;
+  overflow: hidden;
 }
 
 .sidebar-header {
@@ -258,6 +261,27 @@ button.ghost {
 .room-section {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 0.75rem;
+  overflow-y: auto;
+  max-height: 250px;
+  padding-right: 0.5rem;
+}
+
+.room-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.room-section::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.room-section::-webkit-scrollbar-thumb {
+  background: rgba(113, 245, 255, 0.3);
+  border-radius: 10px;
+}
+
+.room-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(113, 245, 255, 0.5);
 }
 
 .room-section h3 {
@@ -288,10 +312,13 @@ button.ghost {
 .room-button p {
   margin: 0;
   font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
 }
 
 .room-button small {
   color: var(--muted);
+  font-size: 0.8rem;
 }
 
 .room-time {
