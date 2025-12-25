@@ -40,7 +40,8 @@ const ChatWindow = ({
   const roomSubtitle = useMemo(() => {
     if (!room) return '';
     if (room.isGroup) {
-      return `${room.members.length} members`;
+      const memberNames = room.members.map(m => m.name).join(', ');
+      return `${room.members.length} members: ${memberNames}`;
     }
     const other = room.members.find((member) => member._id !== currentUser?._id);
     return other?.email || '';

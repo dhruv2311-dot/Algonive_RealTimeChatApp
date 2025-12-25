@@ -114,7 +114,7 @@ const ChatLayout = ({ auth }) => {
   }, [auth.token]);
 
   useEffect(() => {
-    if (!('serviceWorker' in navigator)) return () => {};
+    if (!('serviceWorker' in navigator)) return () => { };
     const handler = (event) => {
       if (event.data?.type === 'OPEN_ROOM' && event.data.roomId) {
         setPendingRoomId(event.data.roomId);
@@ -167,11 +167,27 @@ const ChatLayout = ({ auth }) => {
   };
 
   const handleEditMessage = (messageId, text) => {
+    // Optimistically update UI immediately
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg._id === messageId ? { ...msg, text, edited: true } : msg
+      )
+    );
+
+    // Then emit socket event
     const socket = getSocket();
     socket?.emit('editMessage', { messageId, text });
   };
 
   const handleDeleteMessage = (messageId) => {
+    // Optimistically update UI immediately
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg._id === messageId ? { ...msg, deleted: true, text: '' } : msg
+      )
+    );
+
+    // Then emit socket event
     const socket = getSocket();
     socket?.emit('deleteMessage', { messageId });
   };
