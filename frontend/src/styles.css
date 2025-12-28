@@ -157,7 +157,7 @@ a {
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 1.5rem;
-  min-height: 70vh;
+  min-height: 85vh;
 }
 
 .sidebar {
@@ -170,8 +170,8 @@ a {
   gap: 1rem;
   border: 1px solid var(--panel-light);
   backdrop-filter: blur(14px);
-  height: 70vh;
-  max-height: 70vh;
+  height: 85vh;
+  max-height: 85vh;
   overflow: hidden;
 }
 
@@ -353,8 +353,8 @@ button.ghost {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.04);
   position: relative;
-  height: 70vh;
-  max-height: 70vh;
+  height: 85vh;
+  max-height: 85vh;
 }
 
 .chat-window.empty {
