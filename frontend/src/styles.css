@@ -28,8 +28,9 @@ body {
   font-family: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: var(--bg-gradient);
   color: var(--text);
-  min-height: 100vh;
+  height: 100vh;
   padding: 0;
+  overflow: hidden;
 }
 
 button,
@@ -58,7 +59,11 @@ a {
 .app-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 2.5rem 2rem 3rem;
+  padding: 1.5rem 2rem 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .top-nav {
@@ -71,6 +76,11 @@ a {
   border-radius: 1.8rem;
   margin-bottom: 1.5rem;
   box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+  backdrop-filter: blur(20px);
 }
 
 .brand-block {
@@ -157,7 +167,9 @@ a {
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 1.5rem;
-  min-height: 85vh;
+  flex: 1;
+  overflow: hidden;
+  max-height: calc(100vh - 140px);
 }
 
 .sidebar {
@@ -170,8 +182,7 @@ a {
   gap: 1rem;
   border: 1px solid var(--panel-light);
   backdrop-filter: blur(14px);
-  height: 85vh;
-  max-height: 85vh;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -353,8 +364,7 @@ button.ghost {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.04);
   position: relative;
-  height: 85vh;
-  max-height: 85vh;
+  height: 100%;
 }
 
 .chat-window.empty {
